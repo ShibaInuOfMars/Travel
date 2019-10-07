@@ -1,0 +1,14 @@
+//其他语言遍历时使用for循环
+//less没有循环语法
+//使用函数的迭代，默认是死循环
+//当循环的次数正好是数组的长度停止循环
+//给函数的执行附加条件
+//需要序号来判断  通过序号遍历 @index=1
+.adapterMixin(@index) when (@index > 0){
+  @media screen and (min-width: extract(@adapterDeviceList, @index)){
+    html{
+      font-size: @baseFontSize / @psdWidth * extract(@adapterDeviceList, @index);
+    }
+  }
+  .adapterMixin(@index - 1);
+}
