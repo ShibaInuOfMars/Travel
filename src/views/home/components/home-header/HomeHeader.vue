@@ -1,7 +1,7 @@
 <template>
     <div class="home-header">
-        <div class="search-box">输入城市/景点/游玩主题</div>
-        <div class="position">东莞</div>
+        <div class="search-box"><span class="iconfont search-icon">&#xe6e1;</span>输入城市/景点/游玩主题</div>
+        <div class="position">东莞<span class="iconfont pos-icon">&#xe69b;</span></div>
     </div>
 </template>
 
@@ -30,13 +30,27 @@
             align-items: center;
             padding-left: 10rem / 50;
             color: #E4E7EA;
+
+            .search-icon {
+                font-size: 18rem / 50;
+                margin-right: 3rem / 50;
+            }
         }
 
         .position {
             width: 50rem / 50;
             text-align: center;
-            margin-left: 5rem / 50;
+            margin-left: 10rem / 50;
             color: #fff;
+            height: 30rem / 50;
+            line-height: 30rem / 50;
+            display: flex;
+            align-items: center;
+
+            .pos-icon {
+                font-size: 14rem / 50;
+                margin-left: 1rem / 50;
+            }
         }
     }
 </style>
