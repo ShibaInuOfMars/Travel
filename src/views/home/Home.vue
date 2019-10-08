@@ -1,7 +1,8 @@
 <template>
     <div class="home">
-        <HomeHeader />
+        <home-header />
         <home-swiper />
+        <home-icons />
     </div>
 </template>
 
@@ -10,12 +11,14 @@
     // 主页依赖组件
     import HomeHeader from './components/home-header/HomeHeader';
     import HomeSwiper from './components/home-swiper/HomeSwiper';
+    import HomeIcons from './components/home-icons/HomeIcons';
 
     export default {
         name: 'home',
         components: {
             HomeHeader,
-            HomeSwiper
+            HomeSwiper,
+            HomeIcons
         }
     }
 </script>
