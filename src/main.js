@@ -13,7 +13,17 @@ import './assets/styles/iconfont.css';
 
 // 解决移动设备上的浏览器默认会在用户点击屏幕大约延迟300毫秒后才会触发点击事件
 import FastClick from 'fastclick';
+
 FastClick.attach(document.body);
+
+// 全局配置vue-awesome-swiper
+import VueAwesomeSwiper from 'vue-awesome-swiper';
+
+// require styles
+import 'swiper/dist/css/swiper.css';
+
+Vue.use(VueAwesomeSwiper);
+
 
 Vue.config.productionTip = false;
 
