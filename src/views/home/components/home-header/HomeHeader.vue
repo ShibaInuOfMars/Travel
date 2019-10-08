@@ -12,10 +12,13 @@
 </script>
 
 <style lang="less" scoped>
+    /* @代表的是src目录，但是引入css相关的前面要多加一个~ */
+    @import "~@/assets/common/var.less";
+
     .home-header {
         width: 100%;
         height: 44rem / 50;
-        background-color: #00BCD4;
+        background-color: @travelColor;
         padding: 0 10rem / 50;
         display: flex;
         align-items: center;
@@ -29,7 +32,7 @@
             display: flex;
             align-items: center;
             padding-left: 10rem / 50;
-            color: #E4E7EA;
+            color: #b4b7ba;
 
             .search-icon {
                 font-size: 18rem / 50;
