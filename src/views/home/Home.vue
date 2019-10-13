@@ -13,6 +13,7 @@
                 <span>必游榜单</span>
             </div>
         </div>
+        <home-you-like />
     </div>
 </template>
 
@@ -22,13 +23,15 @@
     import HomeHeader from './components/home-header/HomeHeader';
     import HomeSwiper from './components/home-swiper/HomeSwiper';
     import HomeIcons from './components/home-icons/HomeIcons';
+    import HomeYouLike from './components/home-youLike/HomeYouLike';
 
     export default {
         name: 'home',
         components: {
             HomeHeader,
             HomeSwiper,
-            HomeIcons
+            HomeIcons,
+            HomeYouLike
         }
     }
 </script>
