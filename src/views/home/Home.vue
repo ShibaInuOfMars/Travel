@@ -14,6 +14,7 @@
             </div>
         </div>
         <home-you-like />
+        <home-weekend />
     </div>
 </template>
 
@@ -24,6 +25,7 @@
     import HomeSwiper from './components/home-swiper/HomeSwiper';
     import HomeIcons from './components/home-icons/HomeIcons';
     import HomeYouLike from './components/home-youLike/HomeYouLike';
+    import HomeWeekend from './components/home-weekend/HomeWeekend';
 
     export default {
         name: 'home',
@@ -31,7 +33,8 @@
             HomeHeader,
             HomeSwiper,
             HomeIcons,
-            HomeYouLike
+            HomeYouLike,
+            HomeWeekend
         }
     }
 </script>
