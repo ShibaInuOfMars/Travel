@@ -25,18 +25,18 @@
     .city-header {
         width: 100%;
         height: @headerHeight;
-        display: flex;
-        align-items: center;
+        line-height: @headerHeight;
         background-color: @travelColor;
         color: #fff;
+        position: relative;
+        text-align: center;
 
         .go-back {
             width: .6rem;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-left: .1rem;
+            position: absolute;
+            top: 0;
+            left: .1rem;
 
             .icon-back {
                 font-size: .38rem;
