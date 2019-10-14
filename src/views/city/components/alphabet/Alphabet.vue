@@ -30,6 +30,7 @@
             return {
                 touchStatus: false, // 触摸状态，true为可以滑动
                 startY: 0, // 优化
+                letterHeight: 0,
                 timer: null // 用于函数节流
             }
         },
@@ -49,6 +50,7 @@
         updated() { // 当页面的数据被更新的时候同时页面完成了自己渲染时触发
             // 获取到A字母距离顶部的位置
             this.startY = this.$refs['A'][0].offsetTop; // 通过循环添加ref，获取到的是一个数组
+            this.letterHeight = this.$refs['A'][0].offsetHeight;
         },
         methods: {
             handleLetterChange(e) {
@@ -82,7 +84,7 @@
                         const touchY = e.touches[0].pageY - 77;
 
                         // 获取到当前鼠标停留在哪个字母上面
-                        const index = Math.floor((touchY - this.startY) / this.$refs['A'][0].offsetHeight);
+                        const index = Math.floor((touchY - this.startY) / this.letterHeight);
                         // console.log(index);
                         const letter = this.letters[index];
                         // console.log(letter);
