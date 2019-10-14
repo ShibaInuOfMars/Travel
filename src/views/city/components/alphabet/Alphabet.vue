@@ -28,7 +28,9 @@
         },
         data() {
             return {
-                touchStatus: false // 触摸状态，true为可以滑动
+                touchStatus: false, // 触摸状态，true为可以滑动
+                startY: 0, // 优化
+                timer: null // 用于函数节流
             }
         },
         computed: {
@@ -43,6 +45,10 @@
 
                 return arr;
             }
+        },
+        updated() { // 当页面的数据被更新的时候同时页面完成了自己渲染时触发
+            // 获取到A字母距离顶部的位置
+            this.startY = this.$refs['A'][0].offsetTop; // 通过循环添加ref，获取到的是一个数组
         },
         methods: {
             handleLetterChange(e) {
@@ -62,23 +68,31 @@
             handleTouchMove(e) {
                 if(this.touchStatus) {
                     // 获取到A字母距离顶部的位置
-                    const startY = this.$refs['A'][0].offsetTop; // 通过循环添加ref，获取到的是一个数组
+                    // const startY = this.$refs['A'][0].offsetTop; // 通过循环添加ref，获取到的是一个数组
                     // console.log(startY);
 
-                    // 获取到当前鼠标距离顶部的位置
-                    const touchY = e.touches[0].pageY - 77;
-
-                    // 获取到当前鼠标停留在哪个字母上面
-                    const index = Math.floor((touchY - startY) / this.$refs['A'][0].offsetHeight);
-                    // console.log(index);
-                    const letter = this.letters[index];
-                    // console.log(letter);
-
-                    // 判断边界值，否则会出错
-                    if (index >= 0 && index < this.letters.length) {
-                        // 通知父组件点击的字母改变了
-                        this.$emit('changeLetter', letter);
+                    if (this.timer) {
+                        // 如果timer存在则清除定时器
+                        clearTimeout(this.timer);
                     }
+                    
+                    // 函数节流，降低操作DOM的性能消耗
+                    this.timer = setTimeout(() => {
+                        // 获取到当前鼠标距离顶部的位置
+                        const touchY = e.touches[0].pageY - 77;
+
+                        // 获取到当前鼠标停留在哪个字母上面
+                        const index = Math.floor((touchY - this.startY) / this.$refs['A'][0].offsetHeight);
+                        // console.log(index);
+                        const letter = this.letters[index];
+                        // console.log(letter);
+
+                        // 判断边界值，否则会出错
+                        if (index >= 0 && index < this.letters.length) {
+                            // 通知父组件点击的字母改变了
+                            this.$emit('changeLetter', letter);
+                        }
+                    }, 16);
                 }
             },
 
