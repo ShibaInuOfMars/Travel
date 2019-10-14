@@ -5,8 +5,12 @@
         <city-list 
             :hotCities="hotCities"
             :cities="cities"
+            :letter="letter"
         />
-        <alphabet :cities="cities" />
+        <alphabet 
+            :cities="cities" 
+            @changeLetter="handleLetterChange"
+        />
     </div>
 </template>
 
@@ -24,8 +28,9 @@
         name: 'City',
         data() {
             return {
-                hotCities: [],
-                cities: {}
+                hotCities: [], // 热门城市
+                cities: {}, // 所有城市
+                letter: '' // 点击的字母
             }
         },
         components: {
@@ -49,6 +54,13 @@
                 } else {
                     console.log('网络异常哦~');
                 }
+            },
+
+            handleLetterChange(letter) {
+                // console.log(letter);
+
+                // 获取到所点击的字母
+                this.letter = letter;
             }
         },
         mounted() {

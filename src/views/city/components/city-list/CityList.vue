@@ -27,6 +27,7 @@
                 class="area"
                 v-for="(value, key) of  cities"
                 :key="key"
+                :ref="key"
             >
                 <div class="title border-topbottom">{{key}}</div>
                 <div 
@@ -55,10 +56,28 @@
             cities: {
                 type: Object,
                 required: true
+            },
+            letter: {
+                type: String,
+                required: true
             }
         },
         mounted() {
             this.scroll = new BScroll(this.$refs.wrapper);
+        },
+        watch: {
+            // 监听所点击的字母的变化，让列表也跳转到对应位置
+           letter() {
+               // 获取字母对应所在的DOM元素
+               // 注意通过循环所添加的ref属性，通过该属性获取到的是一个数组 [div.area]
+               const Dletter = this.$refs[this.letter];
+               // console.log(Dletter);
+
+               const element = Dletter[0];
+
+               // 让左侧对应字母的那列跳转到顶部
+               this.scroll.scrollToElement(element);
+           } 
         }
     }
 </script>
