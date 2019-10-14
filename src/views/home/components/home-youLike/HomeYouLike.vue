@@ -6,12 +6,12 @@
         </div>
 
         <ul>
-            <li class="item border-bottom">
+            <li class="item border-bottom" v-for="recommend in recommendList" :key="recommend.id">
                 <div class="item-img-wrapper">
-                    <img class="item-img" src="http://img1.qunarzz.com/sight/p0/1511/34/34170b200db08a5a90.img.jpg_200x200_cc3130fd.jpg" alt="">
+                    <img class="item-img" :src="recommend.imgUrl" :alt="recommend.title">
                 </div>
                 <div class="item-content">
-                    <p>隐贤山庄</p>
+                    <p>{{recommend.title}}</p>
                     <button>查看详情</button>
                 </div>
             </li>
@@ -22,7 +22,13 @@
 
 <script>
     export default {
-    
+        name: 'HomeYouLike',
+        props: {
+            recommendList: {
+                type: Array,
+                required: true
+            }
+        }
     };
 </script>
 

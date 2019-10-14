@@ -1,8 +1,11 @@
 <template>
     <div class="home">
-        <home-header />
-        <home-swiper />
-        <home-icons />
+        <home-header :currentCity="currentCity" />
+
+        <home-swiper :swiperList="swiperList" />
+
+        <home-icons :iconList="iconList" />
+
         <div class="home-center-tool border-top border-color">
             <div class="pos border-right border-color">
                 <span class="iconfont icon-pos">&#xe6e3;</span>
@@ -13,8 +16,10 @@
                 <span>必游榜单</span>
             </div>
         </div>
-        <home-you-like />
-        <home-weekend />
+
+        <home-you-like :recommendList="recommendList" />
+
+        <home-weekend :weekendList="weekendList" />
     </div>
 </template>
 
@@ -27,14 +32,49 @@
     import HomeYouLike from './components/home-youLike/HomeYouLike';
     import HomeWeekend from './components/home-weekend/HomeWeekend';
 
+    //axios
+    import axios from 'axios';
+
     export default {
         name: 'home',
+        data() {
+            return {
+                'currentCity': '',
+                'swiperList': [],
+                'iconList': [],
+                'recommendList': [],
+                'weekendList': []
+            }
+        },
         components: {
             HomeHeader,
             HomeSwiper,
             HomeIcons,
             HomeYouLike,
             HomeWeekend
+        },
+        methods: {
+            getHomeInfo() {
+                axios.get('/api/index.json').then(this.getHomeInfoSucc);
+            },
+
+            getHomeInfoSucc(res) {
+                // console.log(res);
+                let results = res.data;
+                // console.log(results);
+                if (results.success_code === 200) {
+                    this.currentCity = results.result.currentCity;
+                    this.swiperList = results.result.swiperList;
+                    this.iconList = results.result.iconList;
+                    this.recommendList = results.result.recommendList;
+                    this.weekendList = results.result.weekendList;
+                } else {
+                    console.log('网络异常哦~');
+                }
+            }
+        },
+        mounted() {
+            this.getHomeInfo();
         }
     }
 </script>

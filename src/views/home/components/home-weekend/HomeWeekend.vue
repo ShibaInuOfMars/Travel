@@ -5,13 +5,13 @@
         </div>
 
         <ul>
-            <li class="item border-bottom">
+            <li class="item border-bottom" v-for="item in weekendList" :key="item.id">
                 <div class="item-img-wrapper">
-                    <img class="item-img" src="http://img1.qunarzz.com/sight/source/1507/d9/2ddc7652fdba16.jpg_r_640x214_5e62f1a3.jpg" alt="">
+                    <img class="item-img" :src="item.imgUrl" :alt="item.title">
                 </div>
                 <div class="item-content">
-                    <p class="tt">深圳周边游</p>
-                    <p class="desc">远离城市拥堵，去周边开启清新假期吧。</p>
+                    <p class="tt">{{item.title}}</p>
+                    <p class="desc">{{item.desc}}</p>
                 </div>
             </li>
         </ul>
@@ -21,11 +21,19 @@
 
 <script>
     export default {
-    
+        name: 'HomeWeekend',
+        props: {
+            weekendList: {
+                type: Array,
+                required: true
+            }
+        }
     };
 </script>
 
 <style lang="less" scoped>
+    @import "~@/assets/common/mixins.less";
+
     .weekend {
         background-color: #F5F5F5;
         overflow: hidden;
@@ -45,7 +53,7 @@
             .item-img-wrapper {
                overflow: hidden;
                height: 0;
-               padding-bottom: 33.4375%;
+               padding-bottom: 37.09%;
 
                 .item-img {
                     width: 100%;
@@ -67,6 +75,8 @@
                     padding-right: 1.4rem;
                     color: #616161;
                     line-height: .42rem;
+                    min-width: 0;
+                    .ellipsis();
                 }
             }
         }

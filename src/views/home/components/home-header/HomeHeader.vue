@@ -1,13 +1,19 @@
 <template>
     <div class="home-header">
         <div class="search-box"><span class="iconfont search-icon">&#xe6e1;</span>输入城市/景点/游玩主题</div>
-        <div class="position">东莞<span class="iconfont pos-icon">&#xe69b;</span></div>
+        <div class="position">{{currentCity || "选择"}}<span class="iconfont pos-icon">&#xe69b;</span></div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "HomeHeader"
+        name: "HomeHeader",
+        props: {
+            currentCity: {
+                type: String,
+                required: true
+            }
+        }
     }
 </script>
 

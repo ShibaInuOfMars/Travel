@@ -1,0 +1,117 @@
+{
+    "success_code": 200,
+    "result": {
+        "currentCity": "东莞",
+        "swiperList": [
+            {
+                "id": "sw001",
+                "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201910/78b240572657a6da67e662540c846dd6.jpg_750x200_b75c8be9.jpg"
+            },
+            {
+                "id": "sw002",
+                "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201910/4950dc04db88330968906bc610caa524.jpg_750x200_1ee2ba8a.jpg"
+            },
+            {
+                "id": "sw003",
+                "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20196/c36914f22fdb82d2b8878cbf6dddac98.jpg_750x200_4a63da4b.jpg"
+            },
+            {
+                "id": "sw004",
+                "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20199/60724b7b970ee09f1c9465f4acfca17c.jpg_750x200_cfcf1a32.jpg"
+            },
+            {
+                "id": "sw005",
+                "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20195/b07d59650489443d2885e8d06620909f.jpg_750x200_a8180811.jpg"
+            }
+        ],
+        "iconList": [
+            {
+                "id": "ic001",
+                "title": "景点门票",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png"
+            },
+            {
+                "id": "ic002",
+                "title": "东莞必游",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png"
+            },
+            {
+                "id": "ic003",
+                "title": "黄腾峡景区",
+                "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20195/f44e55751b9343cfb624e2982261f485.png"
+            },
+            {
+                "id": "ic004",
+                "title": "消暑玩水",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1805/3a/754b47f658e9c602.png"
+            },
+            {
+                "id": "ic005",
+                "title": "长隆度假区",
+                "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/184e261814a5d07a5d3d08cd29cf590d.png"
+            },
+            {
+                "id": "ic006",
+                "title": "东莞观音山",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png"
+            },
+            {
+                "id": "ic007",
+                "title": "香市动物园",
+                "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/cba147cf6cfcea7109d0bff6aac6f626.png"
+            },
+            {
+                "id": "ic008",
+                "title": "隐贤山庄",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/90/59a2f523ee2f9202.png"
+            },
+            {
+                "id": "ic009",
+                "title": "龙凤山庄",
+                "imgUrl": "http://img1.qunarzz.com/piao/fusion/1803/8c/47630407f70e8302.png"
+            },
+            {
+                "id": "ic010",
+                "title": "广州融创",
+                "imgUrl": "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/bda58ffc3016edad84e656e8a94b0321.png"
+            }
+        ],
+        "recommendList": [
+            {
+                "id": "rc001",
+                "title": "隐贤山庄",
+                "imgUrl": "http://img1.qunarzz.com/sight/p0/1511/34/34170b200db08a5a90.img.jpg_200x200_cc3130fd.jpg"
+            },
+            {
+                "id": "rc002",
+                "title": "东莞香市动物园",
+                "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/1d/1d756648039bf30f90.water.jpg_200x200_64da9a70.jpg"
+            },
+            {
+                "id": "rc003",
+                "title": "东莞龙凤山庄影视渡假村",
+                "imgUrl": "http://img1.qunarzz.com/sight/p0/1902/7a/7ac34ad6cc6e7497a3.img.jpg_200x200_939e55b1.jpg"
+            }
+        ],
+        "weekendList": [
+            {
+                "id": "w001",
+                "title": "东莞打卡",
+                "desc": "东莞，向往一座城，不需要理由",
+                "imgUrl": "http://img1.qunarzz.com/sight/source/1505/4b/d04aa63b1b0ab3.jpg_r_640x214_a3a9c5b6.jpg"
+            },
+            {
+                "id": "w002",
+                "title": "深圳周边游",
+                "desc": "远离城市拥堵，去周边开启清新假期吧。",
+                "imgUrl": "http://img1.qunarzz.com/sight/source/1507/d9/2ddc7652fdba16.jpg_r_640x214_5e62f1a3.jpg"
+            },
+            {
+                "id": "w003",
+                "title": "清远周边逛",
+                "desc": "人人都有一双发现美的眼睛，身边的事物最熟悉不过，那你可曾发现了被人遗漏的美？",
+                "imgUrl": "http://img1.qunarzz.com/sight/source/1811/15/66f14e0fd6fbb.jpg_r_640x214_5d69f21d.jpg"
+            }
+        ]
+    }
+}
