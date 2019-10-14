@@ -1,7 +1,7 @@
 <template>
     <div class="home-header">
         <div class="search-box"><span class="iconfont search-icon">&#xe6e1;</span>输入城市/景点/游玩主题</div>
-        <div class="position">{{currentCity || "选择"}}<span class="iconfont pos-icon">&#xe69b;</span></div>
+        <div class="position" @click="jumpToCity">{{currentCity || "选择"}}<span class="iconfont pos-icon">&#xe69b;</span></div>
     </div>
 </template>
 
@@ -13,6 +13,12 @@
                 type: String,
                 required: true
             }
+        },
+        methods: {
+            jumpToCity() {
+                // 跳转到城市选择页
+                this.$router.push('/city');
+            }
         }
     }
 </script>
@@ -23,7 +29,7 @@
 
     .home-header {
         width: 100%;
-        height: 44rem / 50;
+        height: @headerHeight;
         background-color: @travelColor;
         padding: 0 10rem / 50;
         display: flex;
