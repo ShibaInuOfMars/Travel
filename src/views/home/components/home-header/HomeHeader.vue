@@ -1,7 +1,7 @@
 <template>
     <div class="home-header">
         <div class="search-box"><span class="iconfont search-icon">&#xe6e1;</span>输入城市/景点/游玩主题</div>
-        <div class="position" @click="jumpToCity">{{currentCity || "选择"}}<span class="iconfont pos-icon">&#xe69b;</span></div>
+        <div class="position" @click="jumpToCity"><span class="city-name">{{this.$store.state.currentCity || '选择城市'}}</span><span class="iconfont pos-icon">&#xe69b;</span></div>
     </div>
 </template>
 
@@ -9,10 +9,10 @@
     export default {
         name: "HomeHeader",
         props: {
-            currentCity: {
+            /* currentCity: {
                 type: String,
                 required: true
-            }
+            } */
         },
         methods: {
             jumpToCity() {
@@ -26,6 +26,7 @@
 <style lang="less" scoped>
     /* @代表的是src目录，但是引入css相关的前面要多加一个~ */
     @import "~@/assets/common/var.less";
+    @import "~@/assets/common/mixins.less";
 
     .home-header {
         width: 100%;
@@ -53,14 +54,15 @@
         }
 
         .position {
-            width: 50rem / 50;
+            min-width: 60rem / 50;
+            padding: 0 .1rem;
             text-align: center;
-            margin-left: 10rem / 50;
             color: #fff;
             height: 30rem / 50;
             line-height: 30rem / 50;
             display: flex;
             align-items: center;
+            justify-content: center;
 
             .pos-icon {
                 font-size: 14rem / 50;

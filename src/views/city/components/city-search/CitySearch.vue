@@ -14,6 +14,7 @@
                     class="search-item" 
                     v-for="item of results" 
                     :key="item.id"
+                    @click="handleCityChange(item.name)"
                 >
                     {{item.name}}
                 </li>
@@ -32,6 +33,9 @@
 <script>
     import BScroll from 'better-scroll';
 
+    // vuex 
+    import {mapState, mapActions} from 'vuex';
+
     export default {
         name: 'CitySearch',
         data() {
@@ -42,6 +46,8 @@
             }
         },
         computed: {
+            ...mapState(['currentCity']),
+
             hasNoData() {
                 return !this.results.length;
             },
@@ -51,6 +57,16 @@
         },
         props: {
             cities: Object
+        },
+        methods: {
+            ...mapActions(['changeCity']),
+
+            handleCityChange(city) {
+                this.changeCity(city);
+
+                // 跳回首页
+                this.$router.push('/');
+            }
         },
         watch: {
             keyword() {

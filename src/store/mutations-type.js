@@ -1,0 +1,1 @@
+export const CHANGE_CITY = 'CHANGE_CITY'; // 改变城市

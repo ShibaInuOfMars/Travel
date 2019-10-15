@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <home-header :currentCity="currentCity" />
+        <home-header />
 
         <home-swiper :swiperList="swiperList" />
 
@@ -39,7 +39,7 @@
         name: 'home',
         data() {
             return {
-                'currentCity': '',
+                // 'currentCity': '',
                 'swiperList': [],
                 'iconList': [],
                 'recommendList': [],
@@ -63,7 +63,7 @@
                 let results = res.data;
                 // console.log(results);
                 if (results.success_code === 200) {
-                    this.currentCity = results.result.currentCity;
+                    // this.currentCity = results.result.currentCity;
                     this.swiperList = results.result.swiperList;
                     this.iconList = results.result.iconList;
                     this.recommendList = results.result.recommendList;

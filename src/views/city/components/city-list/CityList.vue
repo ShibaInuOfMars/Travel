@@ -5,7 +5,7 @@
                 <div class="title border-topbottom">当前城市</div>
                 <div class="city">
                     <div class="city-wrapper current">
-                        <div class="city-single">东莞</div>
+                        <div class="city-single">{{currentCity || '定位失败'}}</div>
                     </div>
                 </div>
             </div>
@@ -17,6 +17,7 @@
                         class="city-wrapper"
                         v-for="item of hotCities"
                         :key="item.id"
+                        @click="handleCityChange(item.name)"
                     >
                         <div class="city-single">{{item.name}}</div>
                     </div>
@@ -34,6 +35,7 @@
                     class="word-choose"
                     v-for="city of value"
                     :key="city.id"
+                    @click="handleCityChange(city.name)"
                 >
                     {{city.name}}
                 </div>
@@ -45,6 +47,9 @@
 
 <script>
     import BScroll from 'better-scroll';
+
+    // vuex
+    import {mapState, mapActions} from 'vuex';
 
     export default {
         name: 'CityList',
@@ -60,6 +65,19 @@
             letter: {
                 type: String,
                 required: true
+            }
+        },
+        computed: {
+            ...mapState(['currentCity'])
+        },
+        methods: {
+            ...mapActions(['changeCity']),
+
+            handleCityChange(city) {
+                this.changeCity(city);
+
+                // 跳回首页
+                this.$router.push('/');
             }
         },
         mounted() {

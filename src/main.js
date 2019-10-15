@@ -22,6 +22,9 @@ import VueAwesomeSwiper from 'vue-awesome-swiper';
 // require styles
 import 'swiper/dist/css/swiper.css';
 
+// vuex
+import store from './store/index';
+
 Vue.use(VueAwesomeSwiper);
 
 
@@ -29,5 +32,6 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app');
