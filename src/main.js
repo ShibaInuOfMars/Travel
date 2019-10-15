@@ -18,14 +18,12 @@ FastClick.attach(document.body);
 
 // 全局配置vue-awesome-swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper';
-
 // require styles
 import 'swiper/dist/css/swiper.css';
+Vue.use(VueAwesomeSwiper);
 
 // vuex
 import store from './store/index';
-
-Vue.use(VueAwesomeSwiper);
 
 
 Vue.config.productionTip = false;

@@ -15,13 +15,13 @@
 </template>
 
 <script>
-    //相关组件
+    // 相关组件
     import CityHeader from './components/city-header/CityHeader';
     import CitySearch from './components/city-search/CitySearch';
     import CityList from './components/city-list/CityList';
     import Alphabet  from './components/alphabet/Alphabet';
 
-    //ajax
+    // ajax
     import axios from 'axios';
 
     export default {

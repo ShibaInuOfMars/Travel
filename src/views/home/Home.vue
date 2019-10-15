@@ -32,19 +32,26 @@
     import HomeYouLike from './components/home-youLike/HomeYouLike';
     import HomeWeekend from './components/home-weekend/HomeWeekend';
 
-    //axios
+    // axios
     import axios from 'axios';
+
+    // vuex 
+    import {mapState} from 'vuex';
 
     export default {
         name: 'home',
         data() {
             return {
                 // 'currentCity': '',
+                lastCity: '',
                 'swiperList': [],
                 'iconList': [],
                 'recommendList': [],
                 'weekendList': []
             }
+        },
+        computed: {
+            ...mapState(['currentCity'])
         },
         components: {
             HomeHeader,
@@ -55,7 +62,7 @@
         },
         methods: {
             getHomeInfo() {
-                axios.get('/api/index.json').then(this.getHomeInfoSucc);
+                axios.get('/api/index.json?city=' + this.currentCity).then(this.getHomeInfoSucc);
             },
 
             getHomeInfoSucc(res) {
@@ -74,7 +81,17 @@
             }
         },
         mounted() {
+            this.lastCity = this.currentCity;
             this.getHomeInfo();
+        },
+        activated() { // keep-alive 组件激活时调用
+            // 判断当前城市与最后一次选择的城市是否相同，不相同则重新发送请求
+            if(this.currentCity !== this.lastCity) {
+                this.lastCity = this.currentCity;
+
+                // 重新发送网络请求
+                this.getHomeInfo();
+            }
         }
     }
 </script>

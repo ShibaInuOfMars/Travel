@@ -1,6 +1,6 @@
 <template>
     <div class="swiper-wrapper">
-        <swiper :options="swiperOption" v-if="showSwiper"> 
+        <swiper :options="swiperOption" v-if="showSwiper && isKeep"> 
             <swiper-slide v-for="swiper in swiperList" :key="swiper.id">
                 <img class="swiper-img" :src="swiper.imgUrl" alt="">
             </swiper-slide>
@@ -29,7 +29,8 @@
                         delay: 2000,
                         disableOnInteraction: false
                     }
-                }
+                },
+                isKeep: false // 控制页面在keep-alive后轮播不播放的问题
             }
         },
         computed: {
@@ -37,6 +38,12 @@
                 return this.swiperList.length;
             }
         },
+        activated() {
+            this.isKeep = true;
+        },
+        deactivated() {
+            this.isKeep = false;
+        }
     }
 </script>
 
