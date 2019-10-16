@@ -1,18 +1,19 @@
 <template>
     <div class="detail-banner">
         <div class="banner-wrapper" @click="handleBannerClick">
-            <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1603/1d/1d756648039bf30f90.water.jpg_600x330_c2314535.jpg" alt="">
+            <img class="banner-img" :src="bannerImg" alt="">
 
             <div class="banner-info">
                 <div class="img-info">
                     <span class="iconfont icon-img">&#xe625;</span>
-                    <span class="num">15</span>
+                    <span class="num">{{galleryImgs.length}}</span>
                 </div>
-                <p class="title">东莞香市动物园</p>
+                <p class="title">{{sightName}}</p>
             </div>
         </div>
 
         <gallery 
+            :galleryImgs="galleryImgs"
             v-show="showGallery" 
             @close="hideGallery"
         />
@@ -29,6 +30,11 @@
             return {
                 showGallery: false // 是否显示画廊
             }
+        },
+        props: {
+            sightName: String,
+            bannerImg: String,
+            galleryImgs: Array
         },
         methods: {
             handleBannerClick() {

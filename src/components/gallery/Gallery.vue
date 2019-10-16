@@ -2,11 +2,8 @@
     <div class="gallay" @click="handleGalleryClick">
         <div class="wrapper">
             <swiper :options="swiperOption"> 
-                <swiper-slide>
-                    <img class="gallary-img" src="http://img1.qunarzz.com/sight/p0/1603/1d/1d756648039bf30f90.water.jpg_r_800x800_30b8bd93.jpg" alt="">
-                </swiper-slide>
-                <swiper-slide>
-                    <img class="gallary-img" src="http://img1.qunarzz.com/sight/p0/201406/06/17d1c0935a2136e1d0fd65067142fbf1.jpg_r_800x800_b2d58968.jpg" alt="">
+                <swiper-slide v-for="img of galleryImgs" :key="img">
+                    <img class="gallary-img" :src="img" alt="">
                 </swiper-slide>
                 <div class="swiper-pagination"  slot="pagination"></div>
             </swiper>
@@ -29,6 +26,9 @@
                     observeParents:true // 将observe应用于Swiper的父元素。当Swiper的父元素变化时，例如window.resize，Swiper更新
                 }
             }
+        },
+        props: {
+            galleryImgs: Array
         },
         methods: {
             handleGalleryClick() {

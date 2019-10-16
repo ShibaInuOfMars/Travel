@@ -1,7 +1,7 @@
 <template>
     <div class="detail">
-        <detail-banner />
-        <detail-header />
+        <detail-banner :sightName="sightName" :bannerImg="bannerImg" :galleryImgs="galleryImgs" />
+        <detail-header :sightName="sightName" />
         <div class="content">
             <detail-list v-for="ticketTpye of list" :key="ticketTpye.id" :ticketTpye="ticketTpye" />
         </div>
@@ -14,48 +14,47 @@
     import DetailHeader from './components/detail-header/DetailHeader';
     import DetailList from './components/detail-list/DetailList';
 
+    import axios from 'axios';
+
     export default {
         name: 'Detail',
         data() {
             return {
-                list: [
-                    {
-                        id: 't001',
-                        title: '门票',
-                        details: [
-                            {
-                                title: '成人票',
-                                children: [
-                                    {
-                                        title: '香市动物园成人票1'
-                                    },
-                                    {
-                                        title: '香市动物园成人票2'
-                                    }
-                                ]
-                            },
-                            {
-                                title: '1大1小亲子票',
-                            },
-                            {
-                                title: '儿童票',
-                            },
-                            {
-                                title: '老人票',
-                            }
-                        ]
-                    },
-                    {
-                        id: 't002',
-                        title: '年卡'
-                    }
-                ]
+                sightName: '',
+                bannerImg: '',
+                galleryImgs: [],
+                list: []
             }
         },
         components: {
             DetailBanner,
             DetailHeader,
             DetailList
+        },
+        methods: {
+            getDetailInfo() {
+                axios.get('/api/detail.json', {
+                    params: {
+                        id: this.$route.params.id
+                    }
+                }).then(this.getInfoSucc);
+            },
+
+            getInfoSucc(res) {
+                // console.log(res);
+                let detail = res.data;
+                
+
+                if(detail.success_code === 200) {
+                    this.sightName = detail.result.sightName;
+                    this.bannerImg = detail.result.bannerImg;
+                    this.galleryImgs = detail.result.galleryImgs;
+                    this.list = detail.result.categoryList;
+                }
+            }
+        },
+        mounted() {
+            this.getDetailInfo();
         }
     }
 </script>

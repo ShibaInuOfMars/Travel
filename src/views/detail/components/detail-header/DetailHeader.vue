@@ -17,7 +17,7 @@
             <div class="go-back">
                 <span class="iconfont icon-back-fixed">&#xe646;</span>
             </div>
-            <div>动物园</div>
+            <div>{{sightName}}</div>
         </div>
     </div>
 </template>
@@ -32,6 +32,9 @@
                     opacity: 0
                 }
             }
+        },
+        props: {
+            sightName: String
         },
         methods: {
             // 让头部有渐隐渐现的效果

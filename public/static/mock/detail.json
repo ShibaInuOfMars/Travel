@@ -1,0 +1,48 @@
+{
+    "success_code": 200,
+    "result": {
+        "id": "dt01",
+        "sightName": "东莞香市动物园",
+        "bannerImg": "http://img1.qunarzz.com/sight/p0/1603/1d/1d756648039bf30f90.water.jpg_600x330_c2314535.jpg",
+        "galleryImgs": [
+            "http://img1.qunarzz.com/sight/p0/1603/1d/1d756648039bf30f90.water.jpg_r_800x800_30b8bd93.jpg",
+            "http://img1.qunarzz.com/sight/p0/201406/06/17d1c0935a2136e1d0fd65067142fbf1.jpg_r_800x800_b2d58968.jpg",
+            "http://img1.qunarzz.com/sight/p0/201406/06/98025b6e52dfb6bd9963778a58e7dbac.jpg_r_800x800_71e6c6ee.jpg",
+            "http://img1.qunarzz.com/sight/p0/201403/10/ce16d6897c3cd2ed8e2e21f1daeec241.jpg_r_800x800_df8f6b51.jpg",
+            "http://img1.qunarzz.com/sight/p0/201301/17/3f29f22a7097bd0b93835fbb.jpg_r_800x800_31451404.jpg",
+            "http://img1.qunarzz.com/sight/p0/201406/06/9298cbdefda87cb3f6aed3e9a31b3f9b.jpg_r_800x800_e88d276f.jpg"
+        ],
+        "categoryList": [
+            {
+                "id": "t001",
+                "title": "门票",
+                "details": [
+                    {
+                        "title": "成人票",
+                        "children": [
+                            {
+                                "title": "香市动物园成人票1"
+                            },
+                            {
+                                "title": "香市动物园成人票2"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "1大1小亲子票"
+                    },
+                    {
+                        "title": "儿童票"
+                    },
+                    {
+                        "title": "老人票"
+                    }
+                ]
+            },
+            {
+                "id": "t002",
+                "title": "年卡"
+            }
+        ]
+    }
+}
