@@ -36,7 +36,7 @@
         methods: {
             // 让头部有渐隐渐现的效果
             handleScroll() {
-                console.log(document.documentElement.scrollTop);
+                // console.log(document.documentElement.scrollTop);
                 const scrollTop = document.documentElement.scrollTop;
 
                 if(scrollTop > 0) {
@@ -98,6 +98,7 @@
             top: 0;
             left: 0;
             text-align: center;
+            z-index: 10;
 
             .go-back {
                 width: .6rem;
