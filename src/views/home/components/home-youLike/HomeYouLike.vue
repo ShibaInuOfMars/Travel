@@ -6,7 +6,12 @@
         </div>
 
         <ul>
-            <li class="item border-bottom" v-for="recommend in recommendList" :key="recommend.id">
+            <li 
+                class="item border-bottom" 
+                v-for="recommend in recommendList" 
+                :key="recommend.id"
+                @click="jumpToDetail(recommend.id)"
+            >
                 <div class="item-img-wrapper">
                     <img class="item-img" :src="recommend.imgUrl" :alt="recommend.title">
                 </div>
@@ -27,6 +32,12 @@
             recommendList: {
                 type: Array,
                 required: true
+            }
+        },
+        methods: {
+            // 跳转到详情页
+            jumpToDetail(id) {
+                this.$router.push('/detail/' + id);
             }
         }
     };
