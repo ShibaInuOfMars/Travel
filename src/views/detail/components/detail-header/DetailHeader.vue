@@ -36,7 +36,7 @@
         methods: {
             // 让头部有渐隐渐现的效果
             handleScroll() {
-                // console.log(document.documentElement.scrollTop);
+                console.log(document.documentElement.scrollTop);
                 const scrollTop = document.documentElement.scrollTop;
 
                 if(scrollTop > 0) {
@@ -55,6 +55,10 @@
         },
         activated() {
             window.addEventListener('scroll', this.handleScroll);
+        },
+        deactivated() {
+            // 注册的全局事件，一定要在页面离开的时候解绑这个事件，否则将会影响其他页面
+            window.removeEventListener('scroll', this.handleScroll);
         }
     }
 </script>
