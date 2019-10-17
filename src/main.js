@@ -25,6 +25,9 @@ Vue.use(VueAwesomeSwiper);
 // vuex
 import store from './store/index';
 
+// 解决某些手机浏览器不支持ES6特性
+import 'babel-polyfill';
+
 
 Vue.config.productionTip = false;
 

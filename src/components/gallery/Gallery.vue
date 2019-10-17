@@ -1,7 +1,7 @@
 <template>
     <div class="gallay" @click="handleGalleryClick">
         <div class="wrapper">
-            <swiper :options="swiperOption"> 
+            <swiper :options="swiperOption" v-if="galleryImgs.length"> 
                 <swiper-slide v-for="img of galleryImgs" :key="img">
                     <img class="gallary-img" :src="img" alt="">
                 </swiper-slide>

@@ -39,7 +39,7 @@
             // 让头部有渐隐渐现的效果
             handleScroll() {
                 // console.log(document.documentElement.scrollTop);
-                const scrollTop = document.documentElement.scrollTop;
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 
                 if(scrollTop > 0) {
                     let opacity = scrollTop / 180;
