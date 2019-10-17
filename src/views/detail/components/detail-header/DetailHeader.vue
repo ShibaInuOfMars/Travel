@@ -12,9 +12,8 @@
             class="header-fixed"
             :style="styleObject"
             v-show="!showAbs"
-            @click="goToBack"
         >
-            <div class="go-back">
+            <div class="go-back" @click="goToBack">
                 <span class="iconfont icon-back-fixed">&#xe646;</span>
             </div>
             <div>{{sightName}}</div>
@@ -56,13 +55,22 @@
                 this.$router.back();
             }
         },
-        activated() {
+        mounted() {
             window.addEventListener('scroll', this.handleScroll);
         },
-        deactivated() {
-            // 注册的全局事件，一定要在页面离开的时候解绑这个事件，否则将会影响其他页面
+        beforeDestroy() {
             window.removeEventListener('scroll', this.handleScroll);
         }
+        // 此时因为此组件不被keep-alive缓存，所以该生命周期函数不生效
+        /* activated() {
+            // console.log(1);
+            window.addEventListener('scroll', this.handleScroll);
+        }, */
+         // 此时因为此组件不被keep-alive缓存，所以该生命周期函数不生效
+        /* deactivated() {
+            // 注册的全局事件，一定要在页面离开的时候解绑这个事件，否则将会影响其他页面
+            window.removeEventListener('scroll', this.handleScroll);
+        } */
     }
 </script>
 

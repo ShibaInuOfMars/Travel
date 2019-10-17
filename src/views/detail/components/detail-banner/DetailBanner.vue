@@ -12,17 +12,22 @@
             </div>
         </div>
 
-        <gallery 
-            :galleryImgs="galleryImgs"
-            v-show="showGallery" 
-            @close="hideGallery"
-        />
+        <fade-animation>
+            <gallery 
+                :galleryImgs="galleryImgs"
+                v-show="showGallery" 
+                @close="hideGallery"
+                slot="fade-slot"
+            />
+        </fade-animation>
     </div>
 </template>
 
 <script>
     // 遮罩层
     import Gallery from './../../../../components/gallery/Gallery';
+    // 动画
+    import FadeAnimation from './../../../../components/fade-animation/FadeAnimation';
 
     export default {
         name: 'DetailBanner',
@@ -46,7 +51,8 @@
             }
         },
         components: {
-            Gallery
+            Gallery,
+            FadeAnimation
         }
     }
 </script>
